@@ -1,0 +1,145 @@
+.todo-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  .todo-wrapper {
+    width: 500px;
+    background-color: #CEE9F7;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 1px 2px 5px rgb(112, 112, 112);
+
+
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+
+
+      input {
+        width: 80%;
+        height: 100%;
+        border-color: #3A7BD5;
+        border-radius: 5px 0 0 5px;
+        font-size: 20px;
+        padding: 0 0 0 10px;
+
+      }
+
+      button {
+        width: 20%;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 115%;
+        background-color: #3A7BD5;
+        color: #fff;
+        border: none;
+        border-radius: 0 5px 5px 0;
+      }
+    }
+
+
+    .todos {
+      width: 100%;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 0;
+
+        li {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          justify-self: center;
+          padding: 8px 20px;
+          background-color: #fff;
+          box-shadow: 1px 1px 4px rgb(157, 157, 157);
+          border-radius: 3px;
+          height: 40px;
+
+
+
+          .todo-data {
+            display: flex;
+            flex-direction: row;
+            gap: .3rem;
+            justify-content: center;
+            align-items: center;
+            color: #126ff1;
+            font-size: 20px;
+
+            input[type='checkbox'] {
+              min-width: 20px;
+              min-height: 20px;
+              border: 2px solid #126ff1;
+              outline: #126ff1;
+
+            }
+
+            p {
+              padding: 0 0 0 10px;
+            }
+          }
+
+          .todo-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1.3rem;
+            color: #3A7BD5;
+            font-size: 24px;
+
+            .todo-check {
+              color: rgb(54, 226, 54);
+              cursor: pointer;
+
+              &:hover {
+                color: rgb(119, 255, 119);
+
+              }
+            }
+
+            .todo-edit {
+              color: rgb(252, 101, 14);
+              cursor: pointer;
+
+              &:hover {
+                color: rgb(255, 156, 99);
+
+              }
+
+            }
+
+            .todo-delete {
+              color: red;
+              cursor: pointer;
+
+              &:hover {
+                color: rgb(255, 112, 112);
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
