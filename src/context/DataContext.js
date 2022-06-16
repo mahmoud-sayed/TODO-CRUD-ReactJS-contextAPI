@@ -21,9 +21,8 @@ export const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider value={{
-      items,
-    }
-    }>
+      items
+    }}>
       {children}
     </DataContext.Provider>
   );

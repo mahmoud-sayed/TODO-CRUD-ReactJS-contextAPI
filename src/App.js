@@ -2,8 +2,8 @@ import React from 'react';
 import Form from './Components/Form';
 import TodosData from './Components/TodosData';
 import './App.scss';
+import { DataContext } from './context/DataContext';
 
-import axios from 'axios';
 
 
 const App = () => {
@@ -12,8 +12,10 @@ const App = () => {
   return (
     <div className='todo-page'>
       <div className='todo-wrapper'>
-        <Form />
-        <TodosData />
+        <DataContext.Consumer>
+          <Form />
+          <TodosData />
+        </DataContext.Consumer>
       </div>
     </div>
   );
