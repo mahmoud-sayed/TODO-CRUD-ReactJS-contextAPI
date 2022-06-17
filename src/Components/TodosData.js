@@ -4,7 +4,7 @@ import Todo from './Todo';
 
 const TodosData = () => {
 
-  const items = useContext(DataContext);
+  const { items } = useContext(DataContext);
   return (
     <React.Fragment>
 
@@ -12,7 +12,7 @@ const TodosData = () => {
         items.length === 0 ? <h2 style={{ color: '#3A7BD5' }}>There is No todo </h2> :
           items.map(todo =>
 
-            <Todo key={todo.id} title={todo.title} completed={todo.completed} />
+            <Todo key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} />
 
           )
       }
