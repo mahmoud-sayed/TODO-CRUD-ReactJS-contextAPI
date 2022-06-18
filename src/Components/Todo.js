@@ -4,7 +4,12 @@ import { DataContext } from '../context/DataContext';
 
 const Todo = ({ id, title, completed }) => {
 
-  const { handelCheck, handelDelete } = useContext(DataContext);
+  const { handelDelete, handelEdit } = useContext(DataContext);
+  // handel check
+  const handelCheck = (id) => {
+    console.log(id);
+  };
+
 
   return (
     <div className='todos'>
@@ -15,12 +20,12 @@ const Todo = ({ id, title, completed }) => {
               type="checkbox"
               checked={completed}
               id="check"
-              onClick={handelCheck(id)}
+              onClick={() => handelCheck(id)}
             />
             <p>{title}</p>
           </div>
           <div className='todo-actions'>
-            <FaEdit className='todo-edit' />
+            <FaEdit className='todo-edit' onClick={() => handelEdit(id)} />
             <FaTrashAlt className='todo-delete' onClick={() => handelDelete(id)} />
           </div>
         </li>

@@ -6,9 +6,13 @@ export const DataProvider = ({ children }) => {
 
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState('');
-  console.log(title);
+  const [editSign, setEditSign] = useState(false);
+  const [filteredTitle, setFilteredTitle] = useState('');
+  const [filteredId, setFilteredId] = useState('');
+
 
   const DATA_URL = 'http://localhost:100/data';
+
 
   // handel fitch data
   useEffect(() => {
@@ -25,8 +29,6 @@ export const DataProvider = ({ children }) => {
     const id = items[items.length - 1].id + 1;
     const newItem = { id, title, completed: false };
     await axios.post(`${DATA_URL}`, newItem);
-
-
     setTitle('');
   };
 
@@ -37,6 +39,13 @@ export const DataProvider = ({ children }) => {
   };
 
   // handel edit
+  const handelEdit = (id) => {
+    setEditSign(true);
+    const ItemToEdit = items.filter(item => item.id === id);
+    setFilteredTitle(ItemToEdit[0].title);
+    setFilteredId(ItemToEdit[0].id);
+
+  };
 
 
   // handel delete
@@ -44,18 +53,24 @@ export const DataProvider = ({ children }) => {
     const itemsAfterFilter = items.filter((item) => item.id !== id);
     await axios.delete(`${DATA_URL}/${id}`, { itemsAfterFilter });
     setItems(itemsAfterFilter);
-
   };
 
-  // handel check
-  const handelCheck = (id) => {
-    console.log(id);
-  };
 
 
   return (
     <DataContext.Provider value={{
-      items, setTitle, title, handelSubmit, handelCheck, handelDelete
+      items,
+      setTitle,
+      title,
+      handelSubmit,
+      handelDelete,
+      editSign,
+      handelEdit,
+      filteredTitle,
+      setFilteredTitle,
+      setEditSign,
+      filteredId
+
     }}>
       {children}
     </DataContext.Provider>

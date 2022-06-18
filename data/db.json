@@ -1,9 +1,8 @@
 {
   "data": [
     {
-      "id": 1,
-      "title": "wake up ",
-      "completed": false
+      "title": "wake up 7 am",
+      "id": 1
     },
     {
       "id": 2,
